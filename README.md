@@ -6,21 +6,21 @@ Codes to use for research
 
 作成するプログラムリスト
 
-画像を列ベクトルに変換するプログラム
+1. 画像を列ベクトルに変換するプログラム 1
 <br><br>
 <img src = "https://latex.codecogs.com/gif.latex?Picture&space;\rightarrow&space;x"/>
 
-PCAプログラム 
+1. PCAプログラム 2
 <br>
 
 <img src = "https://latex.codecogs.com/gif.latex?X(x_1,&space;x_2,&space;\cdots&space;,x_n)&space;\rightarrow&space;Y_{pca}(y_1,y_2)"/>
 
 
-楕円推定プログラム
+1. 楕円推定プログラム 3
 br
 
 
 
 
-楕円表示プログラム
+1. 楕円表示プログラム 4
 
