@@ -8,7 +8,7 @@ Codes to use for research
 
 画像を列ベクトルに変換するプログラム
 <br><br>
-<img src = "https://latex.codecogs.com/gif.latex?Picture&space;\rightarrow&space;space;x"/>
+<img src = "https://latex.codecogs.com/gif.latex?Picture&space;\rightarrow&space;x"/>
 
 PCAプログラム 
 <br><br>
