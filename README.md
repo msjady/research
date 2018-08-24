@@ -12,17 +12,17 @@ Codes to use for research
   <img src = "https://latex.codecogs.com/gif.latex?Picture&space;\rightarrow&space;x"/>
 </div>
 
-1. PCAプログラム
+2. PCAプログラム
 <br>
 <div align="center">
   <img src = "https://latex.codecogs.com/gif.latex?X(x_1,&space;x_2,&space;\cdots&space;,x_n)&space;\rightarrow&space;Y_{pca}(y_1,y_2)"/>
 </div>
 
-1. 楕円推定プログラム
+3. 楕円推定プログラム
 <br>
 
 
 
 
-1. 楕円表示プログラム
+4. 楕円表示プログラム
 
