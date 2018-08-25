@@ -1,5 +1,6 @@
 
 import numpy as np
+import math
 
 # 楕円フィッティング
 """（参考）最小二乗法による円フィッティングをする関数
@@ -18,6 +19,7 @@ import numpy as np
 def EllipseFitting(x,y):
     
     sumx2 = sum([ix ** 2 for ix in x])
+    sumx4 = sum([ix ** 4 for ix in x])
     sumy2 = sum([iy ** 2 for iy in y])
     sumy4 = sum([iy ** 4 for iy in y])
 
@@ -28,22 +30,26 @@ def EllipseFitting(x,y):
 
 
 
-    F = np.array([[sumx2y2,sumxy3,sumxy],
-                  [sumxy3,sumy4,sumy2],
-                  [sumxy,sumy2,len(x)]])
+    F = np.array([[sumx4,sumx3y,sumx2y2],
+                  [sumx3y,sumx2y2,sumxy3],
+                  [sumx2y2,sumxy3,sumy4]])
 
-    H = np.array([[-sumx3y],
-                  [-sumx2y2],
-                  [-sumx2]])
+    H = np.array([[sumx2],
+                  [sumxy],
+                  [sumy2]])
 
     T=np.linalg.inv(F).dot(H)
 
     #楕円の式をPrint
-    print("x^2+"+str(T[0])+"xy+"+str(T[1])+"y^2+"+str(T[2])+"=0")
+    print(str(T[0])+"x^2+"+str(T[1])+"xy+"+str(T[2])+"y^2=1")
+
+    theta = math.atan(T[1]/(T[0]-T[2]))/2.0
+    print(theta)
+
+    return (1)
 
 
-
-    '''
+'''
     #cxe=float((T[0]*T[3]-2*T[1]*T[2])/(4*T[1]-T[0]*T[0]))
     #cye=float((T[0]*T[2]-2*T[3])/(4*T[1]-T[0]*T[0]))
     theta = math.atan(T[0]/(1-T[1]))/2
@@ -73,6 +79,4 @@ def EllipseFitting(x,y):
     G = [[g11, g12],
          [g12, g22]]
 
-    '''
-
-    return (1)
+'''
