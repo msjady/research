@@ -1,17 +1,26 @@
 # 楕円フィッティング
-    """（参考）最小二乗法による円フィッティングをする関数
-        input: x,y 円フィッティングする点群
+"""（参考）最小二乗法による円フィッティングをする関数
+    input: x,y 円フィッティングする点群
 
-        output  cxe 中心x座標
-                cye 中心y座標
-                re  半径
+    output  cxe 中心x座標
+            cye 中心y座標
+            re  半径
 
-        参考
-        一般式による最小二乗法（円の最小二乗法）　画像処理ソリューション
-        http://imagingsolution.blog107.fc2.com/blog-entry-16.html
-    """
+    参考
+    一般式による最小二乗法（円の最小二乗法）　画像処理ソリューション
+    http://imagingsolution.blog107.fc2.com/blog-entry-16.html
+"""
 
 import numpy as np
+from pca_and_plot import pca_pic
+
+X_reduced = pca_pic()
+
+xi = 1 #X軸は第何主成分
+yi = 3 #Y軸は第何主成分
+
+X = (X_reduced[0:155,xi] - X_reduced[0,xi])/1000.0
+Y = (X_reduced[0:155,yi] - X_reduced[0,yi])/1000.0
 
 
 def EllipseFitting(x,y):
