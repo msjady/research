@@ -6,8 +6,6 @@ import os
 import pathlib
 import numpy as np
 from PIL import Image
-from sklearn.decomposition import PCA
-from matplotlib import pylab as plt
 
 picdir = pathlib.Path.cwd().parent / 'pictures/ver1/'
 
