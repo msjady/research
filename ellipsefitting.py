@@ -43,8 +43,9 @@ def EllipseFitting(x,y):
 
     T=np.linalg.inv(F).dot(H)
 
+
     #楕円の式をPrint
-    print(str(T[0])+"x^2+"+str(T[1])+"xy+"+str(T[2])+"y^2=1")
+    #print(str(T[0])+"x^2+"+str(T[1])+"xy+"+str(T[2])+"y^2=1")
 
     t02 = T[0]-T[2]
     if t02 == 0:
@@ -66,21 +67,9 @@ def EllipseFitting(x,y):
     b2 = 1.0/(T[0]*cos*cos + T[1]*cos*sin + T[2]*sin*sin)
     b = math.sqrt(abs(b2)) #短軸
 
-    print(str(a)+","+str(b))
+    #print(str(a)+","+str(b))
+    #print(theta)
 
-    print(theta)
+    g = np.c_[np.r_[T[0],T[1]/2.0] , np.r_[T[1]/2.0,T[2]]]
 
-
-
-    return (a,b,theta)
-
-
-'''
-    g11 = (a ** 2 * sin2 + b ** 2 * cos2)/(a ** 2 * b ** 2)
-    g12 = (2 * sin1 * cos1 * (b ** 2 - a ** 2))/(a ** 2 * b ** 2)
-    g22 = (a ** 2 * cos2 + b ** 2 * sin2)/(a ** 2 * b ** 2)
-
-    G = [[g11, g12],
-         [g12, g22]]
-
-'''
+    return (a,b,theta,g)
