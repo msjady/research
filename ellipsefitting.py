@@ -14,6 +14,9 @@ import math
     一般式による最小二乗法（円の最小二乗法）　画像処理ソリューション
     http://imagingsolution.blog107.fc2.com/blog-entry-16.html
 """
+"""(参考)勉強しよう数学3C
+https://schoolhmath3c.blogspot.com/
+"""
 
 
 def EllipseFitting(x,y):
@@ -43,35 +46,36 @@ def EllipseFitting(x,y):
     #楕円の式をPrint
     print(str(T[0])+"x^2+"+str(T[1])+"xy+"+str(T[2])+"y^2=1")
 
-    theta = math.atan(T[1]/(T[0]-T[2]))/2.0
+    t02 = T[0]-T[2]
+    if t02 == 0:
+        theta = math.pi/4.0
+    else:   
+        theta = math.atan(T[1]/(T[0]-T[2]))/2.0
+
+    
+
+    cos = math.cos(theta)
+    sin = math.sin(theta)
+
+    a2 = 1.0/(T[0]*cos*cos + T[1]*cos*sin + T[2]*sin*sin)
+    a = math.sqrt(abs(a2)) #長軸
+
+    cos = math.cos(theta+(math.pi/2.0))
+    sin = math.sin(theta+(math.pi/2.0))
+
+    b2 = 1.0/(T[0]*cos*cos + T[1]*cos*sin + T[2]*sin*sin)
+    b = math.sqrt(abs(b2)) #短軸
+
+    print(str(a)+","+str(b))
+
     print(theta)
 
-    return (1)
+
+
+    return (a,b,theta)
 
 
 '''
-    #cxe=float((T[0]*T[3]-2*T[1]*T[2])/(4*T[1]-T[0]*T[0]))
-    #cye=float((T[0]*T[2]-2*T[3])/(4*T[1]-T[0]*T[0]))
-    theta = math.atan(T[0]/(1-T[1]))/2
-
-    cos1 = math.cos(theta)
-    cos2 = math.cos(theta) ** 2
-    sin1 = math.sin(theta)
-    sin2 = math.sin(theta) ** 2
-    
-
-    #tmpa = (cxe * cos1 + cye * sin1) ** 2 - T[4] * cos2 - (((cxe * sin1 - cye * cos1) ** 2 - T[4] * sin2) * ((sin2-T[1]*cos2)/(cos2 - T[1]*sin2)))
-    #tmpb = (cxe * sin1 - cye * cos1) ** 2 - T[4] * sin2 - (((cxe * cos1 + cye * sin1) ** 2 - T[4] * cos2) * ((cos2-T[1]*sin2)/(sin2 - T[1]*cos2)))
-
-    
-    tmpa = - T[2] * cos2 + (T[2] * sin2) * ((sin2-T[1]*cos2)/(cos2 - T[1]*sin2))
-    tmpb = - T[2] * sin2 + (T[2] * cos2) * ((cos2-T[1]*sin2)/(sin2 - T[1]*cos2))
-
-    print(tmpa)
-
-    a = math.sqrt(abs(tmpa))
-    b = math.sqrt(abs(tmpb))
-
     g11 = (a ** 2 * sin2 + b ** 2 * cos2)/(a ** 2 * b ** 2)
     g12 = (2 * sin1 * cos1 * (b ** 2 - a ** 2))/(a ** 2 * b ** 2)
     g22 = (a ** 2 * cos2 + b ** 2 * sin2)/(a ** 2 * b ** 2)

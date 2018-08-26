@@ -1,8 +1,8 @@
 import pathlib
-import numpy as np
 from pca_and_plot import pca_pic
 from get_threshold import get_threshold
 from ellipsefitting import EllipseFitting
+from show import show
 
 path = pathlib.Path.cwd().parent / 'data/Thresholds/'
 
@@ -17,8 +17,9 @@ Y = (X_reduced[0:pic_num,yi] - X_reduced[0,yi])/1000.0
 [Thresholdx_alice,Thresholdy_alice] = get_threshold(X,Y,pic_num_1f,str(path)+"/Alice.txt")
 [Thresholdx_bob,Thresholdy_bob] = get_threshold(X,Y,pic_num_1f,str(path)+"/Bob.txt")
 
-print(Thresholdx_alice)
+[a1,b1,theta1] = EllipseFitting(Thresholdx_alice,Thresholdy_alice)
+[a2,b2,theta2] = EllipseFitting(Thresholdx_bob,Thresholdy_bob)
 
-EllipseFitting(Thresholdx_alice,Thresholdy_alice)
+show(X,Y,Thresholdx_alice,Thresholdy_alice,Thresholdx_bob,Thresholdy_bob,pic_num_1f,a1,b1,theta1,a2,b2,theta2)
 
 

@@ -2,7 +2,7 @@ import math
 from matplotlib import pylab as plt
 import matplotlib.patches as patches
 
-def show(X,Y,pic_num_1f,a1,b1,theta1,a2,b2,theta2):
+def show(X,Y,Thresholdx_alice,Thresholdy_alice,Thresholdx_bob,Thresholdy_bob,pic_num_1f,a1,b1,theta1,a2,b2,theta2):
 
     plt.scatter(X[0], Y[0],c='lime',label='center')
     plt.scatter(X[1:pic_num_1f], Y[1:pic_num_1f],c='red',label='Anger')
